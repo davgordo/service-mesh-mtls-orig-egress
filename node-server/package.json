@@ -1,0 +1,16 @@
+{
+  "name": "node-server",
+  "version": "1.0.0",
+  "description": "A simple node client app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "debug": "node --inspect=${DEBUG_PORT} server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mohammad Amin",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
