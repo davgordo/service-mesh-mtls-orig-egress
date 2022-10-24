@@ -1,2 +1,2 @@
 # sm-poc
-Service Mesh PoC
+Service Mesh PoC.
