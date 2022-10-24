@@ -2,7 +2,7 @@
   "name": "node-client",
   "version": "1.0.0",
   "description": "A simple node client app",
-  "main": "server.js",
+  "main": "client.js",
   "scripts": {
     "start": "node server.js",
     "debug": "node --inspect=${DEBUG_PORT} server.js",
