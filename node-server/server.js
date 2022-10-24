@@ -6,8 +6,8 @@ const server = http.createServer(app)
 const PRODUCTION = app.get('env') === 'production';
 
 app.get('/', (req, res) => {
-  req.log.info({message: 'Hello from Node.js client Application!'});
-  res.send('Hello from Node.js client Application!');
+  req.log.info({message: 'Hello from Node.js server Application!'});
+  res.send('Hello from Node.js server Application!');
 });
 
 app.get('*', (req, res) => {
