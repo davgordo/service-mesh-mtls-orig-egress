@@ -1,0 +1,16 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: server
+  labels:
+    app: server
+spec:
+  host: server-demo1.apps-crc.testing
+  to:
+    kind: Service
+    name: server
+    weight: 100
+  port:
+    targetPort: http-3001
+  tls:
+    termination: passthrough

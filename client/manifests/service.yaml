@@ -1,0 +1,17 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: client
+  labels:
+    app: client
+spec:
+  ports:
+    - name: http-3001
+      protocol: TCP
+      port: 3001
+      targetPort: 3001
+  type: ClusterIP
+  selector:
+    app: client
+    deployment: client
+
