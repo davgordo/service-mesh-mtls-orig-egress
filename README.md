@@ -70,6 +70,8 @@ oc apply -f server/manifests
 ```
 
 ## Create Client
+Modify `client/manifest/index.js` to point to proper host before applying them.
+
 ```
 oc new-build --binary --name client --strategy docker
 oc start-build client --from-dir=./client
