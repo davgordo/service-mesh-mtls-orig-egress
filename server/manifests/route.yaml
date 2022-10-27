@@ -5,7 +5,6 @@ metadata:
   labels:
     app: server
 spec:
-  host: server-demo1.apps-crc.testing
   to:
     kind: Service
     name: server
