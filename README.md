@@ -59,8 +59,19 @@ cat client-crt.pem server-ca-crt.pem > client.pem
 openssl pkcs12 -export -out client.p12 -in client.pem -inkey client-key.pem -passin pass:pass123 -passout pass:pass123
 
 oc create secret generic clientp12 --from-file=client.p12
+
 ```
 
+Create secret to save passphrase for client
+```
+oc create secret generic server-secret --from-literal=passphrase=pass123
+
+```
+
+Create configmap to save host url
+```
+oc create cm server-config --from-literal=host=server-<project>.<host-url>
+```
 
 ## Create Server
 ```
