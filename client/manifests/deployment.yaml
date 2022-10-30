@@ -38,6 +38,17 @@ spec:
           terminationMessagePolicy: File
           image: >-
             image-registry.openshift-image-registry.svc:5000/demo1/client:latest
+          env:
+            - name: PASS_PHRASE
+              valueFrom:
+                secretKeyRef:
+                  name: server-secret
+                  key: passphrase
+            - name: SERVER_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: server-config
+                  key: host
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
       dnsPolicy: ClusterFirst
