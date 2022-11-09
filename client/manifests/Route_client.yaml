@@ -12,4 +12,3 @@ spec:
   port:
     targetPort: '3001'
   wildcardPolicy: None
-
