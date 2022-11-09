@@ -15,7 +15,7 @@ spec:
     type: Git
     contextDir: server
     git:
-      uri: 'https://github.com/RHatDev/sm-poc.git'
+      uri: 'https://github.com/davgordo/sm-poc.git'
       ref: 'main'
   strategy:
     dockerStrategy: {}
