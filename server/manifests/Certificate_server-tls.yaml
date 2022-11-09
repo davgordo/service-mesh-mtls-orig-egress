@@ -1,0 +1,21 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: server-tls
+spec:
+  secretName: server-tls
+  issuerRef:
+    name: signer
+    kind: ClusterIssuer
+  commonName: server
+  subject:
+    countries:
+      - US
+    organizationalUnits:
+      - RedHat
+  usages:
+    - server auth
+  dnsNames:
+  - server
+  - server.server.svc
+  - server.server.svc.cluster.local

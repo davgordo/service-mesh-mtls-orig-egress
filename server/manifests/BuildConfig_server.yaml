@@ -1,0 +1,24 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  labels:
+    build: server
+  name: server
+spec:
+  output:
+    to:
+      kind: ImageStreamTag
+      name: server:latest
+  postCommit: {}
+  resources: {}
+  source:
+    type: Git
+    contextDir: server
+    git:
+      uri: 'https://github.com/RHatDev/sm-poc.git'
+      ref: 'main'
+  strategy:
+    dockerStrategy: {}
+    type: Docker
+  triggers:
+  - type: ConfigChange

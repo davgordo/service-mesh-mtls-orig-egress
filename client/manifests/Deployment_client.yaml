@@ -1,30 +1,42 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: server
+  name: client
   labels:
-    app: server
+    app: client
+  annotations:
+    image.openshift.io/triggers: |-
+      [
+        {
+          "from": {
+            "kind": "ImageStreamTag",
+            "name": "client:latest"
+          },
+          "fieldPath": "spec.template.spec.containers[0].image"
+        }
+      ]
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: server
+      app: client
   template:
     metadata:
       labels:
-        app: server
-        deployment: server
+        app: client
+        deployment: client
     spec:
       volumes:
         - name: certs
           secret:
-            secretName: server-certs
+            secretName: client-tls
             defaultMode: 420
       containers:
         - resources:
             limits:
               memory: 1Gi
-          name: server
+          terminationMessagePath: /dev/termination-log
+          name: client
           ports:
             - name: http-node
               containerPort: 3001
@@ -34,8 +46,9 @@ spec:
             - name: certs
               readOnly: true
               mountPath: /opt/app-root/certs
-          image: >-
-            image-registry.openshift-image-registry.svc:5000/demo1/server:latest
-      restartPolicy: Always
+          terminationMessagePolicy: File
+          image: client:latest
   strategy:
     type: Recreate
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
