@@ -1,10 +1,10 @@
 const fs = require("fs");
 const https = require("https");
 const options = {
-  key: fs.readFileSync(`/opt/app-root/certs/server-key.pem`),
-  cert: fs.readFileSync(`/opt/app-root/certs/server-crt.pem`),
+  key: fs.readFileSync(`/opt/app-root/certs/tls.key`),
+  cert: fs.readFileSync(`/opt/app-root/certs/tls.crt`),
   ca: [
-    fs.readFileSync(`/opt/app-root/certs/client-ca-crt.pem`)
+    fs.readFileSync(`/opt/app-root/certs/ca.crt`)
   ],
   // Requesting the client to provide a certificate, to authenticate.
   requestCert: true,
