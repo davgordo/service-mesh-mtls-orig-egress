@@ -1,0 +1,47 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: client
+  labels:
+    app: client
+  annotations:
+    image.openshift.io/triggers: |-
+      [
+        {
+          "from": {
+            "kind": "ImageStreamTag",
+            "name": "client:latest"
+          },
+          "fieldPath": "spec.template.spec.containers[0].image"
+        }
+      ]
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: client
+  template:
+    metadata:
+      labels:
+        app: client
+        deployment: client
+      annotations:
+        sidecar.istio.io/inject: 'true'
+    spec:
+      containers:
+        - resources:
+            limits:
+              memory: 1Gi
+          terminationMessagePath: /dev/termination-log
+          name: client
+          ports:
+            - name: http-node
+              containerPort: 3001
+              protocol: TCP
+          imagePullPolicy: Always
+          terminationMessagePolicy: File
+          image: client:latest
+  strategy:
+    type: Recreate
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
