@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: server-mtls-origination
+spec:
+  host: server.server.svc.cluster.local
+  trafficPolicy:
+    loadBalancer:
+      simple: ROUND_ROBIN
+    portLevelSettings:
+    - port:
+        number: 443
+      tls:
+        mode: MUTUAL
+        credentialName: client-tls
+        sni: server.server.svc.cluster.local

@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: client-egress
+spec:
+  selector:
+    istio: egressgateway
+  servers:
+  - port:
+      number: 443
+      name: https
+      protocol: HTTPS
+    hosts:
+    - server.server.svc.cluster.local
+    tls:
+      mode: ISTIO_MUTUAL
