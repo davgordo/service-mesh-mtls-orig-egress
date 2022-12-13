@@ -48,5 +48,17 @@ oc new-project client-mesh
 oc apply -f istio-system/ServiceMeshMemberRoll_default.yaml -n istio-system
 ```
 
+## Provision certificate for mTLS origination
+
+```
+oc apply -f istio-system/Secret_client-tls.yaml -f istio-system/Certificate_client-tls.yaml -n istio-system
+```
+
+## Provision the client inside the service mesh
+
+```
+oc apply -f client-mesh/manifests/ -n client-mesh
+```
+
 # Attribution
 I want to thank you to the author of [this blog](https://www.matteomattei.com/client-and-server-ssl-mutual-authentication-with-nodejs/) for providing easy to follow instructions, which enabled me to complete this poc. 
