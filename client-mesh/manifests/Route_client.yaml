@@ -1,0 +1,14 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: client
+  labels:
+    app: client
+spec:
+  to:
+    kind: Service
+    name: client
+    weight: 100
+  port:
+    targetPort: '3001'
+  wildcardPolicy: None
