@@ -4,7 +4,7 @@ httpProxy.createProxyServer({
   target: {
     protocol: 'http:',
     host: 'server.server.svc.cluster.local',
-    port: 443,
+    port: 80,
   },
   changeOrigin: true,
 }).listen(3001);
