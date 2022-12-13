@@ -22,6 +22,8 @@ oc apply -f server/manifests/ -n server
 
 ## Provision the client
 
+Note: This client demonstrates the runtime instrumentation needed for a client without the use of a service mesh. A second client instance is provided that leverages service mesh configuration.
+
 ```
 oc new-project client
 oc apply -f client/manifests/ -n client
