@@ -4,7 +4,7 @@ metadata:
   name: client-ui
 spec:
   hosts:
-  - "client-ui.apps.cluster-lv7gw.lv7gw.sandbox2409.opentlc.com"
+  - "client-ui.apps.example.com"
   gateways:
   - client-ui
   http:

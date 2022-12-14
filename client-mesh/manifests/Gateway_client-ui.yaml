@@ -11,4 +11,4 @@ spec:
       name: http
       protocol: HTTP
     hosts:
-    - client-ui.apps.cluster-lv7gw.lv7gw.sandbox2409.opentlc.com
+    - client-ui.apps.example.com

@@ -60,6 +60,8 @@ oc apply -f istio-system/Secret_client-tls.yaml -f istio-system/Certificate_clie
 
 ### Provision the client inside the service mesh
 
+Substitute your cluster's wildcard domain into the `Gateway` and `VirtualService` for the client UI in order to support ingress to the client endpoint for demonstration.
+
 ```
 oc apply -f client-mesh/manifests/ -n client-mesh
 ```
