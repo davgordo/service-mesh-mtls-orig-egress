@@ -1,4 +1,4 @@
-# Egress mTLS Origination with OpenShift Service Mesh
+# mTLS origination at an egress gateway using OpenShift Service Mesh
 
 This is a demo of mTLS origination at an Istio egress gateway. Access to the server is authorized only if the client presents a certificate that it trusts. The client is a simple proxy that will send a request to the server and return its response.
 
@@ -10,6 +10,7 @@ The following instructions describe how to provision this demo in an OpenShift c
 
 1. Install the Red Hat OpenShift Certificate Manager operator.
 2. Provision the certificate issuers
+
 ```
 oc apply -f cert-manager/ -n openshift-cert-manager
 ```
@@ -64,4 +65,5 @@ oc apply -f client-mesh/manifests/ -n client-mesh
 ```
 
 ## Attribution
+
 JavaScript examples: [Matteo Mattei](https://www.matteomattei.com/client-and-server-ssl-mutual-authentication-with-nodejs/)
