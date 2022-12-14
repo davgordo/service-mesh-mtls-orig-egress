@@ -23,4 +23,7 @@ spec:
   tracing:
     sampling: 10000
     type: Jaeger
-  version: v2.1
+  security:
+    dataPlane:
+      mtls: true
+  version: v2.3
