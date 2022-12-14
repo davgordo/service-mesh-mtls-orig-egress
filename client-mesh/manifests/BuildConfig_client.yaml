@@ -15,7 +15,7 @@ spec:
     type: Git
     contextDir: client-mesh
     git:
-      uri: 'https://github.com/davgordo/sm-poc.git'
+      uri: 'https://github.com/davgordo/service-mesh-mtls-orig-egress.git'
       ref: 'main'
   strategy:
     dockerStrategy: {}
