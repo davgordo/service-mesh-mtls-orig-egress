@@ -1,4 +1,4 @@
-# Istio Egress mTLS Origination with OpenShift Service Mesh
+# Egress mTLS Origination with OpenShift Service Mesh
 
 This is a demo of mTLS origination at an Istio egress gateway. Access to the server is authorized only if the client presents a certificate that it trusts. The client is a simple proxy that will send a request to the server and return its response.
 
