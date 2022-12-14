@@ -19,9 +19,3 @@ spec:
   - client
   - client.client.svc
   - client.client.svc.cluster.local
-  keystores:
-    pkcs12:
-      create: true
-      passwordSecretRef:
-        name: client-tls
-        key: keystorePassword
